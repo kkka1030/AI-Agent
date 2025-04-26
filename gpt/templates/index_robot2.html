@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 机器人</title>
+    <link rel="stylesheet" href="aa.css">
+</head>
+<body>
+    <h1 class="chat-title">聊天界面</h1>
+
+    <div id="chatbox"></div>
+
+    <div class="chat-input-container">
+        <input type="text" id="userInput" class="chat-input" placeholder="输入你要说的话">
+        <button class="send-button" onclick="sendMessage()">发送</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            let chatbox = document.getElementById("chatbox");
+
+            if (userInput.trim() === "") return;
+
+            chatbox.innerHTML += `<p><strong>你:</strong> ${userInput}</p>`;
+            document.getElementById("userInput").value = "";
+
+            let response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            });
+
+            let result = await response.json();
+            if (result.reply) {
+                chatbox.innerHTML += `<p><strong>AI:</strong> ${result.reply}</p>`;
+            } else {
+                chatbox.innerHTML += `<p><strong>错误:</strong> ${result.error}</p>`;
+            }
+
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+        
+    </script>
+</body>
+</html>

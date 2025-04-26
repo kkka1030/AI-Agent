@@ -1,0 +1,112 @@
+[
+    {
+        "fund_code": "VTSAX",
+        "fund_name": "Vanguard Total Stock Market Ind",
+        "category": "未知类别",
+        "expense_ratio": 0.0,
+        "annual_return": 0.06501007494892952,
+        "volatility": 0.1436565167362344,
+        "sharpe_ratio": 0.3762914592570583,
+        "max_drawdown": -0.1056662399845447,
+        "five_year_growth": 0.06501007494892952
+    },
+    {
+        "fund_code": "VTI",
+        "fund_name": "Vanguard Total Stock Market ETF",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.06701197837193074,
+        "volatility": 0.14253738344274133,
+        "sharpe_ratio": 0.3914563477443014,
+        "max_drawdown": -0.10537087944146192,
+        "five_year_growth": 0.06701197837193074
+    },
+    {
+        "fund_code": "VOO",
+        "fund_name": "Vanguard S&P 500 ETF",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07827287653046722,
+        "volatility": 0.139355026846037,
+        "sharpe_ratio": 0.4734520957539779,
+        "max_drawdown": -0.10044889518520715,
+        "five_year_growth": 0.07827287653046722
+    },
+    {
+        "fund_code": "SPY",
+        "fund_name": "SPDR S&P 500",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07770073507686015,
+        "volatility": 0.13948703052830289,
+        "sharpe_ratio": 0.46928476592702356,
+        "max_drawdown": -0.10035401072659293,
+        "five_year_growth": 0.07770073507686015
+    },
+    {
+        "fund_code": "FXAIX",
+        "fund_name": "Fidelity 500 Index Fund",
+        "category": "未知类别",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07857672933650006,
+        "volatility": 0.14033761024640884,
+        "sharpe_ratio": 0.47314426808835486,
+        "max_drawdown": -0.10044461534352167,
+        "five_year_growth": 0.07857672933650006
+    },
+    {
+        "fund_code": "SCHB",
+        "fund_name": "Schwab U.S. Broad Market ETF",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07690258232784286,
+        "volatility": 0.14287651137935997,
+        "sharpe_ratio": 0.4562451168998567,
+        "max_drawdown": -0.10610529727484933,
+        "five_year_growth": 0.07690258232784286
+    },
+    {
+        "fund_code": "IVV",
+        "fund_name": "iShares Core S&P 500 ETF",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07777238355581839,
+        "volatility": 0.1391118499527414,
+        "sharpe_ratio": 0.47065113638450223,
+        "max_drawdown": -0.10033283224743735,
+        "five_year_growth": 0.07777238355581839
+    },
+    {
+        "fund_code": "FZROX",
+        "fund_name": "Fidelity Total Market Index Fun",
+        "category": "未知类别",
+        "expense_ratio": 0.0,
+        "annual_return": 0.06940531441310438,
+        "volatility": 0.1436802816065865,
+        "sharpe_ratio": 0.40526850482063226,
+        "max_drawdown": -0.10558423540066003,
+        "five_year_growth": 0.06940531441310438
+    },
+    {
+        "fund_code": "VFINX",
+        "fund_name": "Vanguard Index Trust 500 Index ",
+        "category": "未知类别",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07372373642201202,
+        "volatility": 0.14045946692047842,
+        "sharpe_ratio": 0.440352485544939,
+        "max_drawdown": -0.10053007692134075,
+        "five_year_growth": 0.07372373642201202
+    },
+    {
+        "fund_code": "VIG",
+        "fund_name": "Vanguard Div Appreciation ETF",
+        "category": "Large Blend",
+        "expense_ratio": 0.0,
+        "annual_return": 0.07696700472302886,
+        "volatility": 0.11212992070515218,
+        "sharpe_ratio": 0.546883839064443,
+        "max_drawdown": -0.0725526760518345,
+        "five_year_growth": 0.07696700472302886
+    }
+]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>金融顾问 AI</title>
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const message = input.value;
+      const chat = document.getElementById("chat");
+
+      chat.innerHTML += `<div><b>你：</b>${message}</div>`;
+      input.value = "";
+
+      const response = await fetch("/chat", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({message})
+      });
+      const data = await response.json();
+      chat.innerHTML += `<div><b>AI：</b>${data.response}</div>`;
+
+      if (data.exit) {
+        document.getElementById("sendBtn").disabled = true;
+        input.disabled = true;
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>金融顾问 AI</h1>
+  <div id="chat" style="border:1px solid #ccc; padding:10px; width:400px; height:300px; overflow:auto;"></div>
+  <input id="userInput" type="text" style="width:300px;" onkeydown="if(event.key==='Enter'){sendMessage()}">
+  <button id="sendBtn" onclick="sendMessage()">发送</button>
+</body>
+</html>

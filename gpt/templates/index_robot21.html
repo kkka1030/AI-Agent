@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 机器人</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        #chatbox { width: 80%; max-width: 600px; height: 400px; border: 1px solid #ddd; padding: 10px; overflow-y: auto; margin: 20px auto; text-align: left; }
+        input, button { margin-top: 10px; padding: 10px; }
+        button { cursor: pointer; }
+        #booklist { margin-top: 20px; }
+        #booklist ul { text-align: left; margin: 0 auto; }
+    </style>
+    <script>
+        async function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            let chatbox = document.getElementById("chatbox");
+
+            if (userInput.trim() === "") return;
+
+            chatbox.innerHTML += `<p><strong>你:</strong> ${userInput}</p>`;
+            document.getElementById("userInput").value = "";
+
+            let response = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userInput })
+            });
+
+            let result = await response.json();
+            if (result.reply) {
+                chatbox.innerHTML += `<p><strong>邵奕涵:</strong> ${result.reply}</p>`;
+            } else {
+                chatbox.innerHTML += `<p><strong>错误:</strong> ${result.error}</p>`;
+            }
+
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        async function generateBooks() {
+            let response = await fetch("/generate_books", { method: "GET" });
+            let result = await response.json();
+
+            if (result.books) {
+                let booklist = document.getElementById("booklist");
+                booklist.innerHTML = "<h3>推荐书单：</h3><ul>";
+
+                result.books.forEach(book => {
+                    booklist.innerHTML += `<li><strong>书名:</strong> ${book.title} <strong>作者:</strong> ${book.author} <strong>类别:</strong> ${book.genre}</li>`;
+                });
+
+                booklist.innerHTML += "</ul>";
+            } else {
+                alert("生成书单失败");
+            }
+        }
+
+        async function initChat() {
+            let chatbox = document.getElementById("chatbox");
+
+            let response = await fetch("/init_chat", { method: "GET" });
+            let result = await response.json();
+
+            if (result.reply) {
+                chatbox.innerHTML += `<p><strong>邵奕涵:</strong> ${result.reply}</p>`;
+            } else {
+                chatbox.innerHTML += `<p><strong>错误:</strong> ${result.error}</p>`;
+            }
+        }
+
+        window.onload = initChat;
+    </script>
+</head>
+<body>
+    <h1>聊天界面</h1>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="输入想说的话">
+    <button onclick="sendMessage()">发送</button>
+    <br>
+    <button onclick="generateBooks()">生成你的人生书单（点击后耐心等待几秒，请勿重复点击）</button>
+    <div id="booklist"></div>
+</body>
+</html>
