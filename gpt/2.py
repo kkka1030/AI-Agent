@@ -3,8 +3,8 @@ from openai import OpenAI
 
 # 设置 API Key
 client = OpenAI(
-            api_key="sk-CDdT0FyRDSWnUqhTqNbrg07mNGQZkKNOjI8epi8oRfQCcorE", # 替换为您的ZCHAT API密钥
-            base_url="https://api.zchat.tech/v1"
+            api_key="", 
+            base_url=""
         )
 
 # 设定 AI 的角色
