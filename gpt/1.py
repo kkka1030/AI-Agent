@@ -4,8 +4,8 @@ def chat_completion_example():
     try:
         # 创建聊天完成请求
         client = OpenAI(
-            api_key="sk-7k7v6qHOyaXe0kYwHKcwH4aUIhWokNRpTCL19CGmDbKWtBs7", # 替换为您的ZCHAT API密钥
-            base_url="https://api.zchat.tech/v1"
+            api_key="", # 
+            base_url=""
         )
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
